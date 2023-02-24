@@ -15,6 +15,7 @@
 		FB8D4EFD29A3D6090086FAE5 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D4EFC29A3D6090086FAE5 /* Drink.swift */; };
 		FB8D4EFF29A3D8780086FAE5 /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D4EFE29A3D8780086FAE5 /* MenuSection.swift */; };
 		FB8D4F0129A3DA4C0086FAE5 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D4F0029A3DA4C0086FAE5 /* Menu.swift */; };
+		FBA92FAD29A91681003FA4EE /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA92FAC29A91681003FA4EE /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		FB8D4EFC29A3D6090086FAE5 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		FB8D4EFE29A3D8780086FAE5 /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
 		FB8D4F0029A3DA4C0086FAE5 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		FBA92FAC29A91681003FA4EE /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				FB8D4EEA29A3D3F80086FAE5 /* CoolBeansApp.swift */,
 				FB8D4EEC29A3D3F80086FAE5 /* ContentView.swift */,
+				FBA92FAC29A91681003FA4EE /* MenuView.swift */,
 				FB8D4EF829A3D4FB0086FAE5 /* menu.json */,
 				FB8D4EEE29A3D3FA0086FAE5 /* Assets.xcassets */,
 				FB8D4EFC29A3D6090086FAE5 /* Drink.swift */,
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB8D4EED29A3D3F80086FAE5 /* ContentView.swift in Sources */,
+				FBA92FAD29A91681003FA4EE /* MenuView.swift in Sources */,
 				FB8D4EFD29A3D6090086FAE5 /* Drink.swift in Sources */,
 				FB8D4EFF29A3D8780086FAE5 /* MenuSection.swift in Sources */,
 				FB8D4EEB29A3D3F80086FAE5 /* CoolBeansApp.swift in Sources */,
