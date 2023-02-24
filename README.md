@@ -1,0 +1,2 @@
+# CoolBeans
+My training projects
