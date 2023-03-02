@@ -26,22 +26,29 @@ struct MenuView: View {
                         //we can add a header for each section
                         Section {
                             ForEach(section.drinks) { drink in
-                                VStack {
-                                    //In Drik add this code
-                                    //So name in .json file and image name in assets are correct
-//                                    var image: String {
-//                                        name.lowercased().replacingOccurrences(of: " ", with: "-")
-//                                    }
-                                    Image(drink.image)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .cornerRadius(10)
-                                    
-                                    Text(drink.name)
-                                        .font(.system(.body, design: .serif))
+                                
+                                NavigationLink {
+                                    CustomizeView(drink: drink)
+                                } label: {
+                                    VStack {
+                                        //In Drik add this code
+                                        //So name in .json file and image name in assets are correct
+    //                                    var image: String {
+    //                                        name.lowercased().replacingOccurrences(of: " ", with: "-")
+    //                                    }
+                                        Image(drink.image)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .cornerRadius(10)
+                                        
+                                        Text(drink.name)
+                                            .font(.system(.body, design: .serif))
+                                    }
+                                    .padding(.bottom)
                                 }
-                                .padding(.bottom)
+                                .buttonStyle(.plain)
                             }
+
                         } header: {
                             Text(section.name)
                                 .font(.system(.title, design: .serif))
