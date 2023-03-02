@@ -12,6 +12,11 @@ import Foundation
 struct Drink: Codable, Identifiable {
     let id: UUID
     let name: String
+    //replacing of all "-" in drinks names with " "
+    //with out it we can't pass Image(drink.image) for showing images 
+    var image: String {
+        name.lowercased().replacingOccurrences(of: " ", with: "-")
+    }
     
     //just to have easy preview check, adding an example
     static let example = Drink (id: UUID(), name: "Example Drink")
