@@ -13,6 +13,9 @@ import Foundation
 class Menu: ObservableObject, Codable {
     //Menu sections has a bunch of all struct MenuSection with (id: UUID, name: String, drinks: [Drink])
     let sections: [MenuSection]
+    //starting configurations options for milk and syrup
+    var milkOptions = [ConfigurationOption.none] //[] necessary for milkOptions.append
+    var syrupOptions = [ConfigurationOption.none]
     
     init() {
         do {
@@ -25,6 +28,10 @@ class Menu: ObservableObject, Codable {
             
             //take that decoded data into sections property
             sections = menuData.sections
+            
+            //takes milkOptions and syrupOptions from decoded in menuData from .json file
+            milkOptions.append(contentsOf: menuData.milkOptions)
+            syrupOptions.append(contentsOf: menuData.syrupOptions)
         } catch { //if something goes wrong and we don't have menu.json file inside the project
             fatalError("menu.json file is missing or corrupt")
         }
