@@ -13,18 +13,42 @@ struct CustomizeView: View {
     //for customizing Drink
     let drink: Drink
     
-    @State private var size = 0
-    @State private var isDecaf = false
+    @EnvironmentObject var menu: Menu
+    
+    @State private var size = 0 //0 means "Small" at the start
+    @State private var isDecaf = false //means the Toggle will be off at the start
+    
+    @State private var extraShots = 0
+    @State private var milk = ConfigurationOption.none
+    @State private var syrup = ConfigurationOption.none
     
     let sizeOptions = ["Small", "Medium", "Large"]
     
     //to calculate how much caffeine in coffee
     var caffeine: Int {
-        100
+        var caffeineAmount = drink.caffeine[size]
+        caffeineAmount += extraShots * 60
+        
+        if isDecaf {
+            caffeineAmount /= 20
+        }
+        
+        return caffeineAmount
     }
     
     var calories: Int {
-        100
+        var caloriesAmount = drink.baseCalories
+        caloriesAmount += extraShots * 10
+        
+        if drink.coffeeBased {
+            caloriesAmount += milk.calories
+        } else {
+            caloriesAmount += milk.calories / 8
+        }
+        
+        caloriesAmount += syrup.calories
+        
+        return caloriesAmount * (size + 1)
     }
     
     var body: some View {
@@ -35,21 +59,50 @@ struct CustomizeView: View {
                         Text(sizeOptions[index])
                     }
                 }
-                .pickerStyle(.segmented)
+                .pickerStyle(.segmented) //for showing segmented sizes
+                
+                if drink.coffeeBased {
+                    Stepper("Extra shots: \(extraShots)", value: $extraShots, in: 0...10)
+                }
                 
                 Toggle("Decaffeinated", isOn: $isDecaf)
             }
+            
+            Section("Customizations") {
+                Picker("Milk", selection: $milk) {
+                    ForEach(menu.milkOptions) { option in
+                        Text(option.name)
+                            .tag(option) //gives to each option hash number
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+                
+                if drink.coffeeBased {
+                    Picker("Syrup", selection: $syrup) {
+                        ForEach(menu.syrupOptions) { option in
+                            Text(option.name)
+                                .tag(option) //gives to each option hash number
+                        }
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                }
+            }
+            
+            
             Section("Estimates") {
                 //** makes the text a little bit bolder
                 Text("**Caffeine:** \(caffeine) mg")
                 Text("**Calories:** \(calories)")
             }
         }
+        .navigationTitle(drink.name)
+        .navigationBarTitleDisplayMode(.inline) //making small centered title
     }
 }
 
 struct CustomizeView_Previews: PreviewProvider {
     static var previews: some View {
         CustomizeView(drink: Drink.example)
+            .environmentObject(Menu())
     }
 }
