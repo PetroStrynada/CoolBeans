@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     @EnvironmentObject var menu: Menu
+    @Environment(\.dismiss) var dismiss
     
     //To show coffee options in a grid
     let columns = [
@@ -27,10 +28,12 @@ struct MenuView: View {
                             ForEach(section.drinks) { drink in
                                 
                                 NavigationLink {
-                                    CustomizeView(drink: drink)
+                                    CustomizeView(drink: drink) {
+                                        dismiss() //when CustomizeView says to dismiss it self, call my dismiss action
+                                    }
                                 } label: {
                                     VStack {
-                                        //In Drik add this code
+                                        //In Drnik add this code
                                         //So name in .json file and image name in assets are correct
     //                                    var image: String {
     //                                        name.lowercased().replacingOccurrences(of: " ", with: "-")
