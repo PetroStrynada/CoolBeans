@@ -12,7 +12,7 @@ import Foundation
 struct Drink: Codable, Identifiable {
     let id: UUID
     let name: String
-    let caffeine: [Int] //we have 3 sizes Small, Medium, Large. So we add array of Int
+    let caffeine: [Int] //we have 3 sizes Small, Medium, Large. So we add array of Ints
     let coffeeBased: Bool
     let servedWithMilk: Bool
     let baseCalories: Int

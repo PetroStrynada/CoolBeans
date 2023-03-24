@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB0D872929CDB62200557A5A /* Serving.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D872829CDB62200557A5A /* Serving.swift */; };
+		FB0D872B29CDB81300557A5A /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D872A29CDB81300557A5A /* FileManager-DocumentsDirectory.swift */; };
+		FB0D872D29CDBA0F00557A5A /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D872C29CDBA0F00557A5A /* History.swift */; };
 		FB6B5E3B29B1316D005631CC /* ConfigurationOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B5E3A29B1316D005631CC /* ConfigurationOption.swift */; };
 		FB8D4EEB29A3D3F80086FAE5 /* CoolBeansApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D4EEA29A3D3F80086FAE5 /* CoolBeansApp.swift */; };
 		FB8D4EED29A3D3F80086FAE5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8D4EEC29A3D3F80086FAE5 /* ContentView.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB0D872829CDB62200557A5A /* Serving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serving.swift; sourceTree = "<group>"; };
+		FB0D872A29CDB81300557A5A /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
+		FB0D872C29CDBA0F00557A5A /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		FB6B5E3A29B1316D005631CC /* ConfigurationOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationOption.swift; sourceTree = "<group>"; };
 		FB8D4EE729A3D3F80086FAE5 /* CoolBeans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolBeans.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8D4EEA29A3D3F80086FAE5 /* CoolBeansApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolBeansApp.swift; sourceTree = "<group>"; };
@@ -70,9 +76,12 @@
 				FBA92FAC29A91681003FA4EE /* MenuView.swift */,
 				FBBFF80E29B12182004B1A22 /* CustomizeView.swift */,
 				FB8D4EF829A3D4FB0086FAE5 /* menu.json */,
-				FB6B5E3A29B1316D005631CC /* ConfigurationOption.swift */,
 				FB8D4EEE29A3D3FA0086FAE5 /* Assets.xcassets */,
 				FB8D4EFC29A3D6090086FAE5 /* Drink.swift */,
+				FB0D872829CDB62200557A5A /* Serving.swift */,
+				FB0D872A29CDB81300557A5A /* FileManager-DocumentsDirectory.swift */,
+				FB0D872C29CDBA0F00557A5A /* History.swift */,
+				FB6B5E3A29B1316D005631CC /* ConfigurationOption.swift */,
 				FB8D4EFE29A3D8780086FAE5 /* MenuSection.swift */,
 				FB8D4F0029A3DA4C0086FAE5 /* Menu.swift */,
 				FB8D4EF029A3D3FA0086FAE5 /* Preview Content */,
@@ -162,11 +171,14 @@
 				FB8D4EED29A3D3F80086FAE5 /* ContentView.swift in Sources */,
 				FBA92FAD29A91681003FA4EE /* MenuView.swift in Sources */,
 				FB8D4EFD29A3D6090086FAE5 /* Drink.swift in Sources */,
+				FB0D872D29CDBA0F00557A5A /* History.swift in Sources */,
 				FB8D4EFF29A3D8780086FAE5 /* MenuSection.swift in Sources */,
 				FB8D4EEB29A3D3F80086FAE5 /* CoolBeansApp.swift in Sources */,
 				FB6B5E3B29B1316D005631CC /* ConfigurationOption.swift in Sources */,
+				FB0D872B29CDB81300557A5A /* FileManager-DocumentsDirectory.swift in Sources */,
 				FBBFF80F29B12182004B1A22 /* CustomizeView.swift in Sources */,
 				FB8D4F0129A3DA4C0086FAE5 /* Menu.swift in Sources */,
+				FB0D872929CDB62200557A5A /* Serving.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
