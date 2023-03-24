@@ -8,7 +8,7 @@
 import Foundation
 
 class History: ObservableObject {
-    @Published var servings: [Serving] //Published will looking for any new changes in "Serving" history and immediately add them to the servings property
+    @Published var servings: [Serving]
     let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedDrinks")
     
     init() {
