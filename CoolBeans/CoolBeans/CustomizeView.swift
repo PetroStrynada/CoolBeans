@@ -14,6 +14,7 @@ struct CustomizeView: View {
     let drink: Drink
     
     @EnvironmentObject var menu: Menu
+    @EnvironmentObject var history: History
     
     @State private var size = 0 //0 means "Small" at the start
     @State private var isDecaf = false //means the Toggle will be off at the start
@@ -59,7 +60,7 @@ struct CustomizeView: View {
                         Text(sizeOptions[index])
                     }
                 }
-                .pickerStyle(.segmented) //for showing segmented sizes
+                .pickerStyle(.segmented)
                 
                 if drink.coffeeBased {
                     Stepper("Extra shots: \(extraShots)", value: $extraShots, in: 0...10)
@@ -88,7 +89,6 @@ struct CustomizeView: View {
                 }
             }
             
-            
             Section("Estimates") {
                 //** makes the text a little bit bolder
                 Text("**Caffeine:** \(caffeine) mg")
@@ -97,6 +97,11 @@ struct CustomizeView: View {
         }
         .navigationTitle(drink.name)
         .navigationBarTitleDisplayMode(.inline) //making small centered title
+        .toolbar {
+            Button("Save") {
+                history.add(drink, size: sizeOptions[size], extraShots: extraShots, isDecaf: isDecaf, milk: milk, syrup: syrup, caffeine: caffeine, calories: calories)
+            }
+        }
     }
 }
 

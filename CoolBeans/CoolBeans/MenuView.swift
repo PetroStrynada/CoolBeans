@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MenuView: View {
-    //@ObservableObject used if someone (class) passed to your view data, and that class owns that data, not your view
     @EnvironmentObject var menu: Menu
     
     //To show coffee options in a grid
