@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuView: View {
     @EnvironmentObject var menu: Menu
     @Environment(\.dismiss) var dismiss
+    @State private var searchText = ""//for search bar, func in MenuSection
     
     //To show coffee options in a grid
     let columns = [
@@ -25,7 +26,8 @@ struct MenuView: View {
                     ForEach(menu.sections) { section in
                         //we can add a header for each section
                         Section {
-                            ForEach(section.drinks) { drink in
+                            //ForEach(section.drinks) { drink in //with out search bar
+                            ForEach(section.matches(for: searchText)) { drink in
                                 
                                 NavigationLink {
                                     CustomizeView(drink: drink) {
@@ -33,7 +35,7 @@ struct MenuView: View {
                                     }
                                 } label: {
                                     VStack {
-                                        //In Drnik add this code
+                                        //In Drink add this code
                                         //So name in .json file and image name in assets are correct
     //                                    var image: String {
     //                                        name.lowercased().replacingOccurrences(of: " ", with: "-")
@@ -63,6 +65,7 @@ struct MenuView: View {
                 .padding(.horizontal)
             }
             .navigationTitle("Add Drink")
+            .searchable(text: $searchText) //add search bar
         }
     }
 }
