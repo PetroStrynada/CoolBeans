@@ -8,7 +8,7 @@
 import Foundation
 
 //For counting all final parameters of all order
-struct Serving: Identifiable, Codable {
+struct Serving: Identifiable, Codable, Equatable {
     var id: UUID
     let name: String
     let description: String
