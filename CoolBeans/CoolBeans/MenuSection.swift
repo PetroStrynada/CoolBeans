@@ -15,4 +15,11 @@ struct MenuSection: Identifiable, Codable {
     //So it well be array of drinks
     //struct Drink with (id: UUID, name: String) will help me with it
     let drinks: [Drink]
+    
+    func matches(for search: String) -> [Drink] {
+        let trimmed = search.trimmingCharacters(in: .whitespaces)
+        if trimmed.isEmpty { return drinks }
+        
+        return drinks.filter { $0.name.localizedStandardContains(trimmed) }
+    }
 }
