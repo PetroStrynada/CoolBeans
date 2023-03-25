@@ -15,6 +15,14 @@ struct ContentView: View {
     @StateObject var history = History()
     @State private var shovingAddScreen = false
     
+    var totalCaffeine: Int {
+        history.servings.map(\.caffeine).reduce(0, +)
+    }
+    
+    var totalCalories: Int {
+        history.servings.map(\.calories).reduce(0, +)
+    }
+    
     var body: some View {
         NavigationView {
             List {
@@ -23,19 +31,42 @@ struct ContentView: View {
                         shovingAddScreen = true
                     }
                 } else {
+                    Section("Summary") {
+                        Text("Total caffeine \(totalCaffeine)mg")
+                        Text("Total calories \(totalCalories)")
+                    }
+                    
                     ForEach(history.servings) { serving in
                         HStack {
                             VStack(alignment: .leading) {
                                 Text(serving.name)
                                     .font(.headline)
-                                
+
                                 Text(serving.description)
                                     .font(.caption)
                             }
-                            
+
                             Spacer()
-                            
+
                             Text("\(serving.caffeine)mg")
+                        }
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                withAnimation {
+                                    history.delete(serving)
+                                }
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                            
+                            Button(role: .destructive) {
+                                withAnimation {
+                                    history.reorder(serving)
+                                }
+                            } label: {
+                                Label("Repeat", systemImage: "repeat")
+                            }
+                            .tint(.blue)
                         }
                     }
                 }
